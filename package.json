@@ -1,0 +1,73 @@
+{
+  "name": "facerank-react",
+  "version": "1.0.0",
+  "description": "APP Facemash with React",
+  "main": "index.js",
+  "keywords": [
+    "app",
+    "webview",
+    "react",
+    "facemash"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/duduindo/facerank-react.git"
+  },
+  "author": "Eduardo Paixão (@duduindo)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/duduindo/facerank-react/issues"
+  },
+  "homepage": "https://github.com/duduindo/facerank-react#readme",
+  "devDependencies": {
+    "babel-cli": "^6.23.0",
+    "babel-preset-es2015": "^6.22.0",
+    "babel-preset-react": "^6.23.0",
+    "babelify": "^7.3.0",
+    "browserify": "^14.1.0",
+    "concurrently": "^3.3.0",
+    "eslint": "^3.16.1",
+    "eslint-plugin-react": "^6.10.0",
+    "http-server": "^0.9.0",
+    "jest": "^19.0.2",
+    "minify": "^2.0.13",
+    "npm-watch": "^0.1.8",
+    "stylus": "^0.54.5"
+  },
+  "config": {
+    "path_src": "src",
+    "path_dist": "dist"
+  },
+  "watch": {
+    "js": {
+      "patterns": [
+        "./src/react/"
+      ],
+      "extensions": "js"
+    },
+    "css": {
+      "patterns": [
+        "./src/stylus/"
+      ],
+      "extensions": "styl, css"
+    }
+  },
+  "scripts": {
+    "css": "stylus --sourcemap-inline ./$npm_package_config_path_src/stylus/common.styl -o ./$npm_package_config_path_dist/common.css",
+    "js": "browserify --debug --transform babelify ./$npm_package_config_path_src/react/common.js --outfile ./$npm_package_config_path_dist/common.js --minify",
+    "js-compress": "minify  ./$npm_package_config_path_dist/common.js > ./$npm_package_config_path_dist/common.min.js",
+    "lint": "eslint ./$npm_package_config_path_src/react/**; exit 0",
+    "serve": "http-server -c -1 --silent -p 8000 ./dist/",
+    "watch": "npm-watch",
+    "dev": "concurrently \"npm run watch\" \"npm run serve\"",
+    "test":"jest"
+  },
+  "dependencies": {
+    "lodash": "^4.17.4",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2",
+    "react-mdl": "^1.9.0",
+    "react-mdl-extra": "^1.4.3",
+    "react-router": "^3.0.2"
+  }
+}
