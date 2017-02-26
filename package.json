@@ -27,6 +27,9 @@
     "browserify": "^14.1.0",
     "concurrently": "^3.3.0",
     "eslint": "^3.16.1",
+    "eslint-config-airbnb": "^14.1.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^4.0.0",
     "eslint-plugin-react": "^6.10.0",
     "http-server": "^0.9.0",
     "jest": "^19.0.2",
@@ -39,11 +42,11 @@
     "path_dist": "dist"
   },
   "watch": {
-    "js": {
+    "lint": {
       "patterns": [
         "./src/react/"
       ],
-      "extensions": "js"
+      "extensions": "js, jsx"
     },
     "css": {
       "patterns": [
@@ -54,13 +57,13 @@
   },
   "scripts": {
     "css": "stylus --sourcemap-inline ./$npm_package_config_path_src/stylus/common.styl -o ./$npm_package_config_path_dist/common.css",
-    "js": "browserify --debug --transform babelify ./$npm_package_config_path_src/react/common.js --outfile ./$npm_package_config_path_dist/common.js --minify",
-    "js-compress": "minify  ./$npm_package_config_path_dist/common.js > ./$npm_package_config_path_dist/common.min.js",
-    "lint": "eslint ./$npm_package_config_path_src/react/**; exit 0",
+    "js": "browserify --debug --transform babelify ./$npm_package_config_path_src/react/Common.jsx --outfile ./$npm_package_config_path_dist/common.js --minify",
+    "js-compress": "minify  ./$npm_package_config_path_dist/Common.jsx > ./$npm_package_config_path_dist/common.min.js",
+    "lint": "eslint ./$npm_package_config_path_src/react/*.jsx ./$npm_package_config_path_src/react/**/*.jsx; exit 0",
     "serve": "http-server -c -1 --silent -p 8000 ./dist/",
     "watch": "npm-watch",
     "dev": "concurrently \"npm run watch\" \"npm run serve\"",
-    "test":"jest"
+    "test": "jest --watch"
   },
   "dependencies": {
     "lodash": "^4.17.4",
