@@ -1,19 +1,21 @@
 
 //  Library
 import React     from 'react';
-import renderer  from 'react-test-renderer';
+import {shallow} from 'enzyme';
 
 //  My scripts
 import App      from '../../src/react/App.jsx';
 
 
-test('Link changes the class when hovered', () => {
-  const component = renderer.create(
+
+test('App common', () => {
+
+  const checkbox = shallow(
     <App />
   );
 
-  // let tree = component.toJSON();
-  // expect(tree).toMatchSnapshot();
+  //let tree = component.toJSON();
+  //expect(tree).toMatchSnapshot();
 
   // // re-rendering
   // tree = component.toJSON();
