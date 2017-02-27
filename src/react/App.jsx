@@ -1,7 +1,8 @@
 
 //  Library
 import React from 'react';
-import { Layout, Header, Drawer, HeaderRow, Navigation, Content, Textfield } from 'react-mdl';
+import { Layout, Header, Drawer, Navigation, Content, FABButton, Icon } from 'react-mdl';
+
 
 class App extends React.Component {
 
@@ -9,23 +10,13 @@ class App extends React.Component {
     return (
       <div className="demo-big-content">
         <Layout>
-          <Header waterfall>
-            <HeaderRow title="Title">
-              <Textfield
-                value=""
-                label="Search"
-                expandable
-                expandableIcon="search"
-              />
-            </HeaderRow>
-            <HeaderRow>
-              <Navigation>
-                <a href="">Link</a>
-                <a href="">Link</a>
-                <a href="">Link</a>
-                <a href="">Link</a>
-              </Navigation>
-            </HeaderRow>
+          <Header title="Title" scroll>
+            <Navigation>
+              <a href="">Link</a>
+              <a href="">Link</a>
+              <a href="">Link</a>
+              <a href="">Link</a>
+            </Navigation>
           </Header>
           <Drawer title="Title">
             <Navigation>
@@ -37,6 +28,9 @@ class App extends React.Component {
           </Drawer>
           <Content>
             <div className="page-content" />
+            <FABButton colored ripple>
+              <Icon name="add" />
+            </FABButton>
           </Content>
         </Layout>
       </div>
@@ -46,4 +40,3 @@ class App extends React.Component {
 
 
 export default App;
-

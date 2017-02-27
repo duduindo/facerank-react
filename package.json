@@ -59,7 +59,7 @@
   },
   "scripts": {
     "css": "stylus --sourcemap-inline ./$npm_package_config_path_src/stylus/common.styl -o ./$npm_package_config_path_dist/common.css",
-    "js": "browserify --debug --transform babelify ./$npm_package_config_path_src/react/Common.jsx --outfile ./$npm_package_config_path_dist/common.js --extension=.jsx --minify",
+    "js": "browserify --debug --transform babelify ./$npm_package_config_path_src/react/Common.jsx --outfile ./$npm_package_config_path_dist/common.js --extension=.jsx",
     "js-compress": "minify  ./$npm_package_config_path_dist/Common.jsx > ./$npm_package_config_path_dist/common.min.js",
     "lint": "eslint ./$npm_package_config_path_src/react/*.jsx ./$npm_package_config_path_src/react/**/*.jsx; exit 0",
     "serve": "http-server -c -1 --silent -p 8000 ./dist/",

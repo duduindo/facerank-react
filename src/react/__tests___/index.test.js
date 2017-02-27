@@ -4,7 +4,7 @@ import React     from 'react';
 import {shallow} from 'enzyme';
 
 //  My scripts
-import App      from '../../src/react/App.jsx';
+import App      from '../App.jsx';
 
 
 
