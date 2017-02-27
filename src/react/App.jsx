@@ -2,7 +2,7 @@
 //  Library
 import React from 'react';
 import { Layout, Header, Drawer, Navigation, Content, FABButton, Icon } from 'react-mdl';
-
+import 'react-mdl/extra/material.js';
 
 class App extends React.Component {
 
@@ -26,6 +26,7 @@ class App extends React.Component {
               <a href="">Link</a>
             </Navigation>
           </Drawer>
+
           <Content>
             <div className="page-content" />
             <FABButton colored ripple>
