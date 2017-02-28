@@ -2,7 +2,6 @@
 //  Library
 import React from 'react';
 import { Layout, Header, Drawer, Navigation, Content, FABButton, Icon } from 'react-mdl';
-import 'react-mdl/extra/material.js';
 
 class App extends React.Component {
 

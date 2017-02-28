@@ -51,7 +51,7 @@
   "scripts": {
     "create-dist": "sh create-folder-dist.sh",
     "css-prod": "stylus --sourcemap-inline ./$npm_package_config_path_src/stylus/common.styl -o ./$npm_package_config_path_dist/common.min.css",
-    "js": "browserify --transform babelify ./$npm_package_config_path_src/react/Common.jsx --outfile ./$npm_package_config_path_dist/common.js --extension=.jsx",
+    "js": "NODE_ENV=production browserify --transform babelify ./$npm_package_config_path_src/react/Common.jsx --outfile ./$npm_package_config_path_dist/common.js --extension=.jsx",
     "js-compress": "minify  ./$npm_package_config_path_dist/common.js > ./$npm_package_config_path_dist/common.min.js",
     "js-prod": "npm run js && npm run js-compress && rm ./$npm_package_config_path_dist/common.js",
     "serve": "php -S localhost:8000 -t .",
