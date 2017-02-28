@@ -1,39 +1,17 @@
 
-//  Library
 import React from 'react';
-import { Layout, Header, Drawer, Navigation, Content, FABButton, Icon } from 'react-mdl';
+import { Router, Route, IndexRoute, hashHistory } from 'react-router';
+import Home from './page/Home';
+
 
 class App extends React.Component {
-
   render() {
     return (
-      <div className="demo-big-content">
-        <Layout>
-          <Header title="Title" scroll>
-            <Navigation>
-              <a href="">Link</a>
-              <a href="">Link</a>
-              <a href="">Link</a>
-              <a href="">Link</a>
-            </Navigation>
-          </Header>
-          <Drawer title="Title">
-            <Navigation>
-              <a href="">Link</a>
-              <a href="">Link</a>
-              <a href="">Link</a>
-              <a href="">Link</a>
-            </Navigation>
-          </Drawer>
-
-          <Content>
-            <div className="page-content" />
-            <FABButton colored ripple>
-              <Icon name="add" />
-            </FABButton>
-          </Content>
-        </Layout>
-      </div>
+      <Router history={hashHistory}>
+        <Route path="/">
+          <IndexRoute component={Home} />
+        </Route>
+      </Router>
     );
   }
 }

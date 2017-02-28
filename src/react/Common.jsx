@@ -1,6 +1,13 @@
-import React from 'react';
+
+//  Library
+import React    from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
+
+//  JSX
+import App      from './App';
+
+//  JS
 import 'react-mdl/extra/material.js';
 
+//  ReactDom
 ReactDOM.render(<App />, document.getElementById('react-mount'));

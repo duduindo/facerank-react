@@ -16,7 +16,9 @@
 </head>
 
 <body>
-  <div id="react-mount"></div>
+  <div id="react-mount">
+    Carregando..
+  </div>
 
   <!-- Library -->
   <script src="https://unpkg.com/dialog-polyfill/dialog-polyfill.js"></script>
