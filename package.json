@@ -25,7 +25,6 @@
     "babel-preset-react": "^6.23.0",
     "babelify": "^7.3.0",
     "browserify": "^14.1.0",
-    "concurrently": "^3.3.0",
     "enzyme": "^2.7.1",
     "eslint": "^3.16.1",
     "eslint-config-airbnb": "^14.1.0",
@@ -41,7 +40,6 @@
     "jest": "^19.0.2",
     "jest-cli": "^19.0.2",
     "minify": "^2.0.13",
-    "npm-watch": "^0.1.8",
     "react-addons-test-utils": "^15.4.2",
     "stylint-stylish": "^1.4.0",
     "stylus": "^0.54.5"
@@ -50,29 +48,15 @@
     "path_src": "src",
     "path_dist": "dist"
   },
-  "watch": {
-    "lint": {
-      "patterns": [
-        "./src/react/"
-      ],
-      "extensions": "js, jsx"
-    },
-    "css": {
-      "patterns": [
-        "./src/stylus/"
-      ],
-      "extensions": "styl, css"
-    }
-  },
   "scripts": {
-    "css": "stylus --sourcemap-inline ./$npm_package_config_path_src/stylus/common.styl -o ./$npm_package_config_path_dist/common.css",
-    "js": "browserify --debug --transform babelify ./$npm_package_config_path_src/react/Common.jsx --outfile ./$npm_package_config_path_dist/common.js --extension=.jsx",
-    "js-compress": "minify  ./$npm_package_config_path_dist/Common.jsx > ./$npm_package_config_path_dist/common.min.js",
-    "lint": "eslint ./$npm_package_config_path_src/react/*.jsx ./$npm_package_config_path_src/react/**/*.jsx; exit 0",
-    "serve": "http-server -c -1 --silent -p 8000 ./dist/",
-    "watch": "npm-watch",
-    "dev": "concurrently \"npm run watch\" \"npm run serve\"",
-    "test": "gulp"
+    "create-dist": "sh create-folder-dist.sh",
+    "css-prod": "stylus --sourcemap-inline ./$npm_package_config_path_src/stylus/common.styl -o ./$npm_package_config_path_dist/common.min.css",
+    "js": "browserify --transform babelify ./$npm_package_config_path_src/react/Common.jsx --outfile ./$npm_package_config_path_dist/common.js --extension=.jsx",
+    "js-compress": "minify  ./$npm_package_config_path_dist/common.js > ./$npm_package_config_path_dist/common.min.js",
+    "js-prod": "npm run js && npm run js-compress && rm ./$npm_package_config_path_dist/common.js",
+    "serve": "php -S localhost:8000 -t .",
+    "test": "gulp",
+    "start": "npm run create-dist && npm run js-prod && npm run css-prod"
   },
   "dependencies": {
     "lodash": "^4.17.4",
