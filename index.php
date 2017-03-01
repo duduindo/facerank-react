@@ -1,3 +1,7 @@
+<?php
+  define('NO_CACHE', date('Ymdhis'));
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -12,7 +16,7 @@
   <link rel="stylesheet" href="https://unpkg.com/dialog-polyfill/dialog-polyfill.css" />
 
   <!-- My source -->
-  <link rel="stylesheet" href="./dist/common.min.css" />
+  <link rel="stylesheet" href="./dist/common.min.css?<?=NO_CACHE;?>" />
 </head>
 
 <body>
@@ -24,7 +28,7 @@
   <script src="https://unpkg.com/dialog-polyfill/dialog-polyfill.js"></script>
 
   <!-- My source -->
-  <script src="./dist/common.min.js"></script>
+  <script src="./dist/common.min.js?<?=NO_CACHE;?>"></script>
 </body>
 
 </html>

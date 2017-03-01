@@ -8,7 +8,7 @@ import watch    from 'gulp-watch';
 //  Jest Javascript
 gulp.task('jest', () => {
   return gulp.src('./test/js/')
-              .pipe(jest())
+              .pipe(jest({'coverage': true}))
               .on('finish', () => { console.log('\n\n') });
 });
 
@@ -34,6 +34,7 @@ gulp.task('stylint', () => {
 //  Gulp Watch
 gulp.task('watch',['jest', 'lint', 'stylint'], () => {
   gulp.watch(['./src/react/**/*.jsx'], ['jest', 'lint']);
+  gulp.watch(['./test/js/*.test.js'], ['jest']);
   gulp.watch(['./src/stylus/**/*.styl'], ['stylint']);
 });
 

@@ -41,6 +41,7 @@
     "jest-cli": "^19.0.2",
     "minify": "^2.0.13",
     "react-addons-test-utils": "^15.4.2",
+    "react-test-renderer": "^15.4.2",
     "stylint-stylish": "^1.4.0",
     "stylus": "^0.54.5"
   },
@@ -53,8 +54,10 @@
     "css-prod": "stylus --sourcemap-inline ./$npm_package_config_path_src/stylus/common.styl -o ./$npm_package_config_path_dist/common.min.css",
     "js": "NODE_ENV=production browserify --transform babelify ./$npm_package_config_path_src/react/Common.jsx --outfile ./$npm_package_config_path_dist/common.js --extension=.jsx",
     "js-compress": "minify  ./$npm_package_config_path_dist/common.js > ./$npm_package_config_path_dist/common.min.js",
-    "js-prod": "npm run js && npm run js-compress && rm ./$npm_package_config_path_dist/common.js",
+    "js-prod": "npm run js && npm run js-compress && rm ./$npm_package_config_path_dist/common.js && npm run notify",
+    "notify": "notify-send 'Facerank' 'Production'",
     "serve": "php -S localhost:8000 -t .",
+    "clean": "jest -u",
     "test": "gulp",
     "start": "npm run create-dist && npm run js-prod && npm run css-prod"
   },

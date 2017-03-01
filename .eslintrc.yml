@@ -9,4 +9,6 @@ env:
   es6: true
 rules:
   react/prefer-stateless-function:
-  - 0
+    - 0
+  no-multi-spaces:
+    - 0

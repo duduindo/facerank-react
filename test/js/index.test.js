@@ -1,13 +1,14 @@
 
 //  Library
 import React     from 'react';
+import renderer  from 'react-test-renderer';
 import {shallow} from 'enzyme';
 
 //  My scripts
-import App from '../../src/react/App.jsx';
-import Home from '../../src/react/page/Home.jsx';
-import Header from '../../src/react/includes/Header.jsx';
-import Drawer from '../../src/react/includes/Drawer.jsx';
+import App from '../../src/react/App';
+import Home from '../../src/react/page/Home';
+import Header from '../../src/react/includes/Header';
+import Drawer from '../../src/react/includes/Drawer';
 
 
 
@@ -32,8 +33,16 @@ test('Header', () => {
 });
 
 
-test('Drawer', () => {
-  const checkbox = shallow(
-    <Drawer title={"Titleee string"} />
-  );
+test('Drawer Shallow', () => {
+  const drawer = shallow(<Drawer title="Títuloo" />);
+
+  //drawer.find('.opa').simulate('mouseover');
+});
+
+
+test('Drawer Renderer', () => {
+  const drawer = renderer.create(<Drawer title="Títuloo" />);
+
+  const tree = drawer.toJSON();
+  expect(tree).toMatchSnapshot();
 });
