@@ -38,6 +38,25 @@ class Preferences extends React.Component {
               </DataTable>
             </Column>
           </Row>
+
+          <Row>
+            <Column width="1/1" gutterWidth="20">
+              <Radio
+                value="distancia"
+                name="sorteio"
+                ripple
+              > Sorteio por distância</Radio>
+
+              <span style={StyleLabelKm} >{this.state.distancia}km</span>
+
+              <Slider
+                min={1}
+                max={100}
+                defaultValue={10}
+                onChange={this.changeSlider}
+              />
+            </Column>
+          </Row>
         </Grid>
       </Content>
     );
