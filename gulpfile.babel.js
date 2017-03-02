@@ -1,14 +1,32 @@
 import gulp     from 'gulp';
 import jest     from 'gulp-jest';
+import jplugin  from 'gulp-jest-cli';
 import stylint  from 'gulp-stylint';
 import eslint   from 'gulp-eslint';
 import watch    from 'gulp-watch';
 
 
 //  Jest Javascript
+// gulp.task('jest', () => {
+//   return gulp.src('./test/js/')
+//               .pipe(jest({
+//                 'coverage': true,
+//                 'updateSnapshot': true,
+//                 'preprocessorIgnorePatterns': ['<rootDir>/dist/', '<rootDir>/node_modules/'],
+//                 'onlyChanged': true,
+//               }))
+//               .on('finish', () => { console.log('\n\n') });
+// });
+
 gulp.task('jest', () => {
   return gulp.src('./test/js/')
-              .pipe(jest({'coverage': true}))
+              .pipe(jplugin({
+                'config': '.jestrc',
+                'coverage': true,
+                'onlyChanged': true,
+                'preprocessorIgnorePatterns': ['<rootDir>/dist/', '<rootDir>/node_modules/'],
+                'updateSnapshot': true,
+              }))
               .on('finish', () => { console.log('\n\n') });
 });
 

@@ -60,11 +60,11 @@ class Drawer extends React.Component {
     return (
       <DrawerMdl title={this.props.title}>
         <Navigation>
-          <Link className={`mdl-navigation__link--${this.state.classHome}`}        to="/">Home</Link>
-          <Link className={`mdl-navigation__link--${this.state.classProfile}`}     to="/profile">Perfil</Link>
-          <Link className={`mdl-navigation__link--${this.state.classRanking}`}     to="/ranking">Ranking</Link>
-          <Link className={`mdl-navigation__link--${this.state.classPreferences}`} to="/preferences">Preferências</Link>
-          <Link className={`mdl-navigation__link--${this.state.classSettings}`}    to="/settings">Configuraçõess</Link>
+          <Link href="#/"            className={`mdl-navigation__link--${this.state.classHome}`}        >Home</Link>
+          <Link href="#/profile"     className={`mdl-navigation__link--${this.state.classProfile}`}     >Perfil</Link>
+          <Link href="#/ranking"     className={`mdl-navigation__link--${this.state.classRanking}`}     >Ranking</Link>
+          <Link href="#/preferences" className={`mdl-navigation__link--${this.state.classPreferences}`} >Preferências</Link>
+          <Link href="#/settings"    className={`mdl-navigation__link--${this.state.classSettings}`}    >Configuraçõess</Link>
         </Navigation>
       </DrawerMdl>
     );

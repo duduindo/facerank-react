@@ -1,20 +1,23 @@
 
 import React from 'react';
-import { Layout, Content } from 'react-mdl';
-import Header from '../includes/Header';
-import Drawer from '../includes/Drawer';
-
+import { Content } from 'react-mdl';
+import { Grid, Row, Column } from 'react-cellblock';
 
 class Profile extends React.Component {
   render() {
     return (
-      <div style={{ height: '100vh', position: 'relative' }}>
-        <Layout fixedHeader>
-          <Header title="Profile head.." />
-          <Drawer title="Profile Dra.." />
-          <Content />
-        </Layout>
-      </div>
+      <Content>
+        <Grid>
+          <Row>
+            <Column width="1/2">
+              Left!
+            </Column>
+            <Column width="1/2">
+              Right!
+            </Column>
+          </Row>
+        </Grid>
+      </Content>
     );
   }
 }
