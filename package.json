@@ -65,7 +65,6 @@
   "dependencies": {
     "lodash": "^4.17.4",
     "react": "^15.4.2",
-    "react-cellblock": "^2.0.0",
     "react-dom": "^15.4.2",
     "react-mdl": "^1.9.0",
     "react-mdl-extra": "^1.4.3",
