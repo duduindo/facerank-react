@@ -99,7 +99,7 @@ class Preferences extends React.Component {
 
 
 Small.propTypes = {
-  children: React.PropTypes.element,
+  children: React.PropTypes.node,
 };
 
 
