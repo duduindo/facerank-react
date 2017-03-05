@@ -22,6 +22,8 @@ const css = {
 class Preferences extends React.Component {
 
   render() {
+    const b = true;
+
     return (
       <Content style={css.content}>
         <Grid>
@@ -47,7 +49,10 @@ class Preferences extends React.Component {
         <Grid>
           <Cell col={12}>
             <h2 style={css.h2}> Sorteio por locais: </h2>
-            <BoxLocal />
+            <BoxLocal order={'989464664'} views={'55886644'} local={'Brasil'} typeLocal={'País'} auth={b}  />
+            <BoxLocal order={'989'} views={'808110'} local={'São Paulo'} typeLocal={'Estado'} auth={b} />
+            <BoxLocal order={'121211'} views={'40110'} local={'Carapicuíba'} typeLocal={'Cidade'} auth={b} />
+            <BoxLocal order={'546'} views={'1001'} local={'Elisabeth Silva de Araújo'} typeLocal={'Escola'} auth={b} />
           </Cell>
         </Grid>
       </Content>
