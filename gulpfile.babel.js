@@ -9,14 +9,14 @@ import watch    from 'gulp-watch';
 //  Jest Javascript
 gulp.task('jest', () => {
   return gulp.src('./test/js/')
-              .pipe(jplugin({
-                'config': '.jestrc',
-                'coverage': true,
-                'onlyChanged': false,
-                'preprocessorIgnorePatterns': ['<rootDir>/dist/', '<rootDir>/node_modules/'],
-                'updateSnapshot': true,
-              }))
-              .on('finish', () => { console.log('\n\n') });
+             .pipe(jplugin({
+               'config': '.jestrc',
+               'coverage': true,
+               'onlyChanged': false,
+               'preprocessorIgnorePatterns': ['<rootDir>/dist/', '<rootDir>/node_modules/'],
+               'updateSnapshot': true,
+             }))
+             .on('finish', () => { console.log('\n\n') });
 });
 
 
