@@ -1,46 +1,50 @@
 
 import React from 'react';
-import { Button, Dialog, DialogTitle, DialogContent, DialogActions } from 'react-mdl';
+import { Dialog, DialogContent } from 'react-mdl';
+import SearchLocal from './Search-local';
 
 
+const css = {
+  dialogContent: {
+    padding: '0 10px',
+  },
+
+  title: {
+    marginTop: '10px',
+  },
+};
+
+
+/**
+ *  Modal for search location
+ */
 class ModalSearchLocal extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-    this.handleOpenDialog = this.handleOpenDialog.bind(this);
-    this.handleCloseDialog = this.handleCloseDialog.bind(this);
-  }
-
-  handleOpenDialog() {
-    this.setState({
-      openDialog: true,
-    });
-  }
-
-  handleCloseDialog() {
-    this.setState({
-      openDialog: false,
-    });
-  }
-
   render() {
     return (
       <div>
-        <Button colored onClick={this.handleOpenDialog} raised ripple>Show Modal</Button>
-        <Dialog open={this.state.openDialog}>
-          <DialogTitle>Allow this site to collect usage data to improve your experience?</DialogTitle>
+        <Dialog open={this.props.open}>
           <DialogContent>
-            <p>Allowing us to collect data will let us get you the information you want faster.</p>
+            <h5 style={css.title}>Busque um(a) {this.props.type}</h5>
+
+            <SearchLocal index={this.props.index} type={this.props.type} />
           </DialogContent>
-          <DialogActions fullWidth>
-            <Button type="button">Agree</Button>
-            <Button type="button" onClick={this.handleCloseDialog}>Disagree</Button>
-          </DialogActions>
         </Dialog>
       </div>
     );
   }
 }
+
+
+ModalSearchLocal.propTypes = {
+  index: React.PropTypes.string.isRequired,
+  type: React.PropTypes.string.isRequired,
+  open: React.PropTypes.bool,
+};
+
+
+ModalSearchLocal.defaultProps = {
+  open: false,
+};
 
 
 export default ModalSearchLocal;
