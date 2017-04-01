@@ -11,12 +11,15 @@
   <title>Facerank - React</title>
 
   <!-- Library -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
-  <link rel="stylesheet" href="./node_modules/react-mdl/extra/material.min.css">
-  <link rel="stylesheet" href="https://unpkg.com/dialog-polyfill/dialog-polyfill.css" />
 
   <!-- My source -->
   <link rel="stylesheet" href="./dist/common.min.css?<?=NO_CACHE;?>" />
+
+  <style>
+    body {
+      background-color: silver;
+    }
+  </style>
 </head>
 
 <body>
