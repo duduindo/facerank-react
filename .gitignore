@@ -2,3 +2,6 @@ node_modules/
 dist/
 coverage/
 test/js/__snapshots__/
+*.lock
+*.sublime-project
+*.sublime-workspace

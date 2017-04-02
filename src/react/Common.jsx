@@ -4,10 +4,7 @@ import React    from 'react';
 import ReactDOM from 'react-dom';
 
 //  JSX
-import App      from './App';
-
-//  JS
-import 'react-mdl/extra/material.js';
+import App from './App';
 
 //  ReactDom
 ReactDOM.render(<App />, document.getElementById('react-mount'));
