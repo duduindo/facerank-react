@@ -1,10 +1,13 @@
 
 import React from 'react';
 
+//  Includes
+import Header from '../includes/Header';
+
 
 const Home = () => (
   <div>
-    <button onClick={() => alert(10)}>VAI TOMAR NO CÚ DE QUEM FEZ ESSA MERDA DE REDUX!!!</button>
+    <Header />
   </div>
 );
 
