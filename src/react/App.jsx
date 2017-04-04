@@ -1,43 +1,22 @@
+//  Library's
+import React, { PropTypes } from 'react';
+import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 
-//  Library
-import React from 'react';
-import { Layout, Header, Drawer, Navigation, Content, FABButton, Icon } from 'react-mdl';
-import 'react-mdl/extra/material.js';
+//  Pages
+import Home from './pages/Home';
 
-class App extends React.Component {
 
-  render() {
-    return (
-      <div className="demo-big-content">
-        <Layout>
-          <Header title="Title" scroll>
-            <Navigation>
-              <a href="">Link</a>
-              <a href="">Link</a>
-              <a href="">Link</a>
-              <a href="">Link</a>
-            </Navigation>
-          </Header>
-          <Drawer title="Title">
-            <Navigation>
-              <a href="">Link</a>
-              <a href="">Link</a>
-              <a href="">Link</a>
-              <a href="">Link</a>
-            </Navigation>
-          </Drawer>
-
-          <Content>
-            <div className="page-content" />
-            <FABButton colored ripple>
-              <Icon name="add" />
-            </FABButton>
-          </Content>
-        </Layout>
-      </div>
-    );
-  }
-}
+const App = () =>(
+  <div>
+    <main>
+      <Router history={hashHistory}>
+        <Route path="/">
+          <IndexRoute component={Home} />
+        </Route>
+      </Router>
+    </main>
+  </div>
+);
 
 
 export default App;

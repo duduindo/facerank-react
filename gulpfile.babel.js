@@ -1,5 +1,6 @@
 import gulp     from 'gulp';
 import jest     from 'gulp-jest';
+import jplugin  from 'gulp-jest-cli';
 import stylint  from 'gulp-stylint';
 import eslint   from 'gulp-eslint';
 import watch    from 'gulp-watch';
@@ -8,8 +9,14 @@ import watch    from 'gulp-watch';
 //  Jest Javascript
 gulp.task('jest', () => {
   return gulp.src('./test/js/')
-              .pipe(jest())
-              .on('finish', () => { console.log('\n\n') });
+             .pipe(jplugin({
+               'config': '.jestrc',
+               'coverage': true,
+               'onlyChanged': false,
+               'preprocessorIgnorePatterns': ['<rootDir>/dist/', '<rootDir>/node_modules/'],
+               'updateSnapshot': true,
+             }))
+             .on('finish', () => { console.log('\n\n') });
 });
 
 
@@ -34,6 +41,7 @@ gulp.task('stylint', () => {
 //  Gulp Watch
 gulp.task('watch',['jest', 'lint', 'stylint'], () => {
   gulp.watch(['./src/react/**/*.jsx'], ['jest', 'lint']);
+  gulp.watch(['./test/js/*.test.js'], ['jest']);
   gulp.watch(['./src/stylus/**/*.styl'], ['stylint']);
 });
 

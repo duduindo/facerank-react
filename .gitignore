@@ -1,3 +1,7 @@
 node_modules/
-dist/*.js
-dist/*.css
+dist/
+coverage/
+test/js/__snapshots__/
+*.lock
+*.sublime-project
+*.sublime-workspace
