@@ -52,7 +52,7 @@
   },
   "scripts": {
     "create-dist": "sh create-folder-dist.sh",
-    "css-prod": "stylus --sourcemap-inline ./$npm_package_config_path_src/stylus/common.styl -o ./$npm_package_config_path_dist/common.min.css",
+    "css-prod": "stylus --use bootstrap-styl --sourcemap-inline ./$npm_package_config_path_src/stylus/common.styl -o ./$npm_package_config_path_dist/common.min.css",
     "js": "NODE_ENV=production browserify --transform babelify ./$npm_package_config_path_src/react/Common.jsx --outfile ./$npm_package_config_path_dist/common.js --extension=.jsx",
     "js-compress": "minify  ./$npm_package_config_path_dist/common.js > ./$npm_package_config_path_dist/common.min.js",
     "js-prod": "npm run js && npm run js-compress && rm ./$npm_package_config_path_dist/common.js && npm run notify",
@@ -63,10 +63,11 @@
     "start": "npm run create-dist && npm run js-prod && npm run css-prod"
   },
   "dependencies": {
+    "bootstrap-styl": "^5.0.8",
     "lodash": "^4.17.4",
     "react": "^15.4.2",
+    "react-bootstrap": "^0.30.8",
     "react-dom": "^15.4.2",
-    "react-mdl": "^1.9.0",
     "react-router": "^3.0.2"
   }
 }
