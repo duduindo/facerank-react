@@ -40,7 +40,7 @@ gulp.task('stylint', () => {
 
 //  Gulp Watch
 gulp.task('watch',['jest', 'lint', 'stylint'], () => {
-  gulp.watch(['./src/react/**/*.jsx'], ['jest', 'lint']);
+  gulp.watch(['./src/react/**/*.{jsx, js}'], ['jest', 'lint']);
   gulp.watch(['./test/js/*.test.js'], ['jest']);
   gulp.watch(['./src/stylus/**/*.styl'], ['stylint']);
 });

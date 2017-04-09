@@ -1,13 +1,10 @@
 
 import React from 'react';
 
-//  Includes
-import Header from '../includes/Header';
-
 
 const Home = () => (
   <div>
-    <Header />
+    <h1>100</h1>
   </div>
 );
 
