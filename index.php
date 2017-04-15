@@ -22,7 +22,7 @@
 
 
   <!-- My source -->
-  <script src="./dist/common.min.js?<?=NO_CACHE;?>"></script>
+  <script src="./dist/common.js?<?=NO_CACHE;?>"></script>
 </body>
 
 </html>

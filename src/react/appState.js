@@ -1,18 +1,39 @@
 
-import { observable } from 'mobx';
+import { observable, observe, autorun, toJS } from 'mobx';
+import store from 'store';
+
+/**
+ * States
+ */
 
 //  Preferences form
 const preferences = observable({
   gender: {
-    female: true,
+    female: false,
     male: false,
-
-    get values() {
-      return [this.female, this.male]
-    }
   }
 });
 
+
+//  Content app
+const allStates = observable({
+  preferences
+});
+
+
+/**
+ *  Engines
+ */
+//  Autorun
+autorun(() => {
+  store.set('allstates', toJS(allStates));
+  console.warn(JSON.stringify(toJS(allStates)));
+});
+
+
+/**
+ *  Export
+ */
 export {
   preferences
 };
