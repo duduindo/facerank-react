@@ -37,7 +37,7 @@ class Preferences extends Component {
     this.defaultCheckboxs();
 
     console.log(this.props.locations);
-  }
+  };
 
   defaultCheckboxs() {
     this.checkFemale.checked = this.props.female;

@@ -29,6 +29,7 @@
     "babel-preset-react": "^6.23.0",
     "babelify": "^7.3.0",
     "browserify": "^14.1.0",
+    "dotenv": "^4.0.0",
     "enzyme": "^2.7.1",
     "enzyme-to-json": "^1.5.0",
     "eslint": "^3.16.1",
@@ -40,7 +41,10 @@
     "gulp-eslint": "^3.0.1",
     "gulp-jest": "^1.0.0",
     "gulp-jest-cli": "0.0.3",
+    "gulp-rename": "^1.2.2",
+    "gulp-sourcemaps": "^2.6.0",
     "gulp-stylint": "^4.0.0",
+    "gulp-stylus": "^2.6.0",
     "gulp-watch": "^4.3.11",
     "http-server": "^0.9.0",
     "jest": "^19.0.2",
@@ -48,7 +52,10 @@
     "minify": "^2.0.13",
     "react-addons-test-utils": "^15.4.2",
     "stylint-stylish": "^1.4.0",
-    "stylus": "^0.54.5"
+    "stylus": "^0.54.5",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0",
+    "vinyl-transform": "^1.0.0"
   },
   "config": {
     "path_src": "src",
