@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { Router } from 'react-router';
 import {shallow, render, mount} from 'enzyme';
 
 

@@ -1,18 +1,31 @@
 
 import React from 'react';
-import {shallow, render, mount} from 'enzyme';
+import {shallow} from 'enzyme';
 
 
 //  My scripts
 import Home from '../../src/react/pages/Home';
+import Preferences from '../../src/react/pages/Preferences';
 
 
 describe('Home', () => {
 
-  it('Index', () => {
+  it('Home', () => {
     const component = shallow(<Home />);
 
     //expect(component).toMatchSnapshot();
   });
 
+});
+
+
+describe('Preferences', () => {
+
+  it('Preferences', () => {
+    const component = shallow(<Preferences />);
+
+    //expect(component).toMatchSnapshot();
+  });
+
 })
+

@@ -6,16 +6,12 @@ import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 import Layout from './Layout';
 
 //  Pages
-//  import Home from './pages/Home';
-import Preferences from './pages/Preferences';
+import Home from './pages/Home';
 
 
 const App = () => (
   <Router history={hashHistory}>
-    <Route path="/" component={Layout}>
-      <IndexRoute component={Preferences} />
-      <Route path="/preferences" component={Preferences} />
-    </Route>
+
   </Router>
 );
 

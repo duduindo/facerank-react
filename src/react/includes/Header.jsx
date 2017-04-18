@@ -6,13 +6,7 @@ import { Navbar } from 'react-bootstrap';
 
 const Header = () => (
   <header>
-    <Navbar>
-      <Navbar.Header>
-        <Navbar.Brand>
-          Preferências
-        </Navbar.Brand>
-      </Navbar.Header>
-    </Navbar>
+    41
   </header>
 );
 

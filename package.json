@@ -30,7 +30,7 @@
     "babelify": "^7.3.0",
     "browserify": "^14.1.0",
     "dotenv": "^4.0.0",
-    "enzyme": "^2.7.1",
+    "enzyme": "^2.8.2",
     "enzyme-to-json": "^1.5.0",
     "eslint": "^3.16.1",
     "eslint-config-airbnb": "^14.1.0",
@@ -76,15 +76,18 @@
   },
   "dependencies": {
     "bootstrap-styl": "^5.0.8",
+    "create-react-class": "^15.5.2",
     "form-to-object": "^5.0.0",
     "lodash": "^4.17.4",
     "mobx": "^3.1.9",
-    "mobx-react": "^4.1.5",
-    "react": "^15.4.2",
+    "mobx-react": "^4.1.8",
+    "prop-types": "^15.5.8",
+    "react": "^15.5.4",
     "react-bootstrap": "^0.30.8",
-    "react-dom": "^15.4.2",
+    "react-dom": "^15.5.4",
     "react-icons": "^2.2.3",
     "react-router": "^3.0.2",
     "store": "^2.0.4"
-  }
+  },
+  "peerDependencies": {}
 }
