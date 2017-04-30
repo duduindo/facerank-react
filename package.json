@@ -57,22 +57,12 @@
     "vinyl-source-stream": "^1.1.0",
     "vinyl-transform": "^1.0.0"
   },
-  "config": {
-    "path_src": "src",
-    "path_dist": "dist"
-  },
   "scripts": {
-    "create-dist": "sh create-folder-dist.sh",
-    "css-prod": "stylus --use bootstrap-styl --sourcemap-inline ./$npm_package_config_path_src/stylus/common.styl -o ./$npm_package_config_path_dist/common.min.css",
-    "js": "NODE_ENV=production browserify --transform babelify ./$npm_package_config_path_src/react/Common.jsx --outfile ./$npm_package_config_path_dist/common.js --extension=.jsx",
-    "js-compress": "minify  ./$npm_package_config_path_dist/common.js > ./$npm_package_config_path_dist/common.min.js",
-    "js-prod": "yarn js && yarn js-compress && rm ./$npm_package_config_path_dist/common.js && yarn notify",
-    "js-test": "yarn js && yarn notify",
-    "notify": "notify-send 'Facerank' 'Production'",
-    "serve": "php -S localhost:8000 -t .",
-    "clean": "jest -u",
-    "test": "gulp",
-    "start": "yarn create-dist && yarn js-prod && yarn css-prod"
+    "postinstall": "if [ ! -d \"./dist\" ]; then mkdir dist; fi",
+    "test:watch": "gulp test:watch",
+    "prod:watch": "gulp prod:watch",
+    "test": "gulp test",
+    "start": "gulp prod"
   },
   "dependencies": {
     "bootstrap-styl": "^5.0.8",

@@ -8,7 +8,6 @@ import watch      from 'gulp-watch';
 import sourcemaps from 'gulp-sourcemaps';
 import rename     from 'gulp-rename';
 import stylus     from 'gulp-stylus';
-
 import buffer     from 'vinyl-buffer';
 import source     from 'vinyl-source-stream';
 import babelify   from 'babelify';
@@ -64,7 +63,7 @@ gulp.task('stylint', () => {
 });
 
 
-//  Stylus
+//  Build Stylus
 gulp.task('stylus', () => {
   return gulp.src(['./src/stylus/common.styl'])
              .pipe(sourcemaps.init())
@@ -79,7 +78,7 @@ gulp.task('stylus', () => {
 });
 
 
-//  JS
+//  Build JS
 gulp.task('js', () => {
   browserify({
     entries: './src/react/Common.jsx',
@@ -95,11 +94,23 @@ gulp.task('js', () => {
 
 
 //  Gulp Watch Test
-gulp.task('watch',['jest', 'lint', 'stylint'], () => {
-  gulp.watch(['./src/react/**/*.{jsx, js}'], ['jest', 'lint']);
+gulp.task('test:watch',['jest', 'lint', 'stylint'], () => {
   gulp.watch(['./test/js/*.test.js'], ['jest']);
+  gulp.watch(['./src/react/**/*.{jsx, js}'], ['lint', 'jest']);
   gulp.watch(['./src/stylus/**/*.styl'], ['stylint']);
 });
+
+//  Gulp Watch Prod
+gulp.task('prod:watch',['stylus', 'js'], () => {
+  gulp.watch(['./src/react/**/*.{jsx, js}'], ['js']);
+  gulp.watch(['./src/stylus/**/*.styl'], ['stylus']);
+});
+
+//  Gulp Test
+gulp.task('test',['jest', 'lint', 'stylint']);
+
+//  Gulp Prod
+gulp.task('prod',['stylus', 'js']);
 
 
 //  Default
