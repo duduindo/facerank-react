@@ -1,6 +1,6 @@
 
 import React from 'react';
-import {shallow, render, mount} from 'enzyme';
+import ReactTestRenderer from 'react-test-renderer';
 
 
 //  My scripts
@@ -10,8 +10,9 @@ import Header from '../../src/react/includes/Header';
 describe('Header', () => {
 
   it('Index', () => {
-    const component = shallow(<Header />);
+    const renderer = ReactTestRenderer.create(<Header />);
 
+    console.log(renderer.toJSON());
     //expect(component).toMatchSnapshot();
   });
 

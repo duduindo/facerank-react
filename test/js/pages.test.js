@@ -1,6 +1,6 @@
 
 import React from 'react';
-import {shallow, render, mount} from 'enzyme';
+import ReactTestRenderer from 'react-test-renderer';
 
 
 //  My scripts
@@ -10,8 +10,8 @@ import Home from '../../src/react/pages/Home';
 describe('Home', () => {
 
   it('Index', () => {
-    const component = shallow(<Home />);
-
+    const renderer = ReactTestRenderer.create(<Home />);
+    console.log(renderer.toJSON());
     //expect(component).toMatchSnapshot();
   });
 
