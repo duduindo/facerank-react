@@ -4,7 +4,7 @@ import React from 'react';
 
 const Home = () => (
   <div>
-    <h1>100</h1>
+    <h1>Dudu</h1>
   </div>
 );
 

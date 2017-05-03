@@ -1,19 +1,20 @@
-import fs         from 'fs';
-import gulp       from 'gulp';
-import jest       from 'gulp-jest';
-import jplugin    from 'gulp-jest-cli';
-import stylint    from 'gulp-stylint';
-import eslint     from 'gulp-eslint';
-import watch      from 'gulp-watch';
-import sourcemaps from 'gulp-sourcemaps';
-import rename     from 'gulp-rename';
-import stylus     from 'gulp-stylus';
-import buffer     from 'vinyl-buffer';
-import source     from 'vinyl-source-stream';
-import babelify   from 'babelify';
-import browserify from 'browserify';
-import bootstrap  from 'bootstrap-styl';
-import dotenv     from 'dotenv';
+import fs          from 'fs';
+import gulp        from 'gulp';
+import jest        from 'gulp-jest';
+import jplugin     from 'gulp-jest-cli';
+import stylint     from 'gulp-stylint';
+import eslint      from 'gulp-eslint';
+import watch       from 'gulp-watch';
+import sourcemaps  from 'gulp-sourcemaps';
+import rename      from 'gulp-rename';
+import stylus      from 'gulp-stylus';
+import buffer      from 'vinyl-buffer';
+import source      from 'vinyl-source-stream';
+import babelify    from 'babelify';
+import browserify  from 'browserify';
+import bootstrap   from 'bootstrap-styl';
+import dotenv      from 'dotenv';
+import browserSync from 'browser-sync';
 
 
 //  Env
@@ -34,8 +35,7 @@ gulp.task('jest', () => {
                'onlyChanged': false,
                'preprocessorIgnorePatterns': ['<rootDir>/dist/', '<rootDir>/node_modules/'],
                'updateSnapshot': true,
-             }))
-             .on('finish', () => { console.log('\n\n') });
+             }));
 });
 
 
@@ -44,13 +44,7 @@ gulp.task('lint', () => {
   return gulp.src(['./src/react/*.jsx', './src/react/**/*.jsx'])
              .pipe(eslint())
              .pipe(eslint.format())
-             .pipe(eslint.failAfterError())
-             .on('error', err => {
-               if (err.plugin === 'gulp-eslint') {
-
-               }
-             })
-             .on('finish', () => { console.log('\n\n') });
+             .pipe(eslint.failAfterError());
 });
 
 
@@ -58,8 +52,7 @@ gulp.task('lint', () => {
 gulp.task('stylint', () => {
   return gulp.src(['./src/stylus/*.styl'])
              .pipe(stylint({config: '.stylintrc'}))
-             .pipe(stylint.reporter())
-             .on('finish', () => { console.log('\n\n') });
+             .pipe(stylint.reporter());
 });
 
 
@@ -73,8 +66,7 @@ gulp.task('stylus', () => {
              }))
              .pipe(sourcemaps.write())
              .pipe(rename('common.min.css'))
-             .pipe(gulp.dest('./dist/'))
-             .on('finish', () => { console.log('\n\n') });
+             .pipe(gulp.dest('./dist/'));
 });
 
 
@@ -100,11 +92,19 @@ gulp.task('test:watch',['jest', 'lint', 'stylint'], () => {
   gulp.watch(['./src/stylus/**/*.styl'], ['stylint']);
 });
 
-//  Gulp Watch Prod
-gulp.task('prod:watch',['stylus', 'js'], () => {
+//  Gulp Prod watch
+gulp.task('prod:watch', ['js', 'stylus'], () => {
+  browserSync.init({
+    server: "./",
+    open: false
+  });
+
   gulp.watch(['./src/react/**/*.{jsx, js}'], ['js']);
   gulp.watch(['./src/stylus/**/*.styl'], ['stylus']);
+
+  gulp.watch(['./dist/*.js', './dist/*.css']).on('change', browserSync.reload);
 });
+
 
 //  Gulp Test
 gulp.task('test',['jest', 'lint', 'stylint']);
@@ -115,3 +115,5 @@ gulp.task('prod',['stylus', 'js']);
 
 //  Default
 gulp.task('default', ['watch']);
+
+
